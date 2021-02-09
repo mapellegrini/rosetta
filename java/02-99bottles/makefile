@@ -1,0 +1,3 @@
+run: 
+	java NinetyNineBottles.java
+
