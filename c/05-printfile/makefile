@@ -3,7 +3,7 @@ CC=gcc
 run: printfile
 	./printfile
 
-99bottles:
+printfile:
 	$(CC) -o printfile printfile.c
 
 clean:
