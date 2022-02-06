@@ -7,10 +7,15 @@ char * get_arg(int argc, char ** argv, char * searchstr, int offset){
   int c;
   for (c=0; c < argc; c++){
     if (argv[c][0] == '-'){
-      if (strcmp(argv[c] + sizeof(char), searchstr) == 0){
+      if (argv[c][1] == '-'){
+	if (strcmp(argv[c] + sizeof(char) * 2, searchstr) == 0){
+	  return argv[c+offset];
+	}
+      }
+      else if (strcmp(argv[c] + sizeof(char), searchstr) == 0){
 	return argv[c+offset];
       }
-    }
+    }    
   }
   return NULL;
 }
@@ -36,4 +41,5 @@ int main( int argc, char *argv[] )  {
   printf("int (-i) = %d\n", get_cli_int(argc, argv));
   printf("str (-s) = %s\n", get_cli_str(argc, argv));
   printf("bool (-b) = %d\n", get_cli_bool(argc, argv));
+  printf("double (--double) = %s\n", get_arg(argc, argv, "double", 1));
 }
