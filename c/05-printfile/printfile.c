@@ -56,7 +56,7 @@ int main(){
   filebuf = malloc(sizeof(char) * filesize);
   
   fp = fopen(path, "r");
-  fgets(filebuf, filesize+1, fp);
+  fread(filebuf, 1, filesize+1, fp);
 
   printf("Read in:\n%s\n", filebuf);
 

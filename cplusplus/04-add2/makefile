@@ -1,10 +1,10 @@
-CC=gcc
+CC=g++
 
 run: add2
 	./add2
 
-99bottles:
-	$(CC) -o add2 add2.c
+add2:
+	$(CC) -o add2 add2.cpp
 
 clean:
 	rm -f add2

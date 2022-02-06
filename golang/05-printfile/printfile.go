@@ -10,7 +10,7 @@ import (
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter a number: ")
+	fmt.Print("Enter the complete path to a file: ")
 	path, err := reader.ReadString('\n')
 	path = strings.TrimSpace(path)
 	
@@ -21,6 +21,6 @@ func main() {
 	}
 	
 	content, err := ioutil.ReadFile(path)
-	fmt.Print("Read in:\n", string(content))
+	fmt.Print("Read in:\n", string(content), "\n")
 }
 	
