@@ -13,12 +13,16 @@ int main(){
   std::cout << "Enter the complete path to a file: ";
   std::cin >> path;
 
-  ifstream filehandler(path);
   stringstream buffer;
-  buffer << filehandler.rdbuf();
-  text = buffer.str();
-
-  cout<< "The size of that file is " << text.length() << endl;
-  cout << "Read in:" << endl << text;
+  ifstream filehandler(path);
+  if (filehandler){
+    buffer << filehandler.rdbuf();
+    text = buffer.str();
+    cout<< "The size of that file is " << text.length() << endl;
+    cout << "Read in:" << endl << text << endl;
+  }
+  else{
+    cout<<"Cannot read file: " << path << endl;
+  }
 
 }
