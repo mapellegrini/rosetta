@@ -4,8 +4,8 @@
 #define MAX_STRLEN 100
 
 struct node{
-  char * userstr;
-  struct node * next_ptr;
+    char * userstr;
+    struct node * next_ptr;
 };
 
 
@@ -36,31 +36,30 @@ void del_ll(struct node * linkedlist_ptr){
 }
 
 
-
 struct node * add_str_to_ll(struct node * linkedlist_ptr, char * userstr){
-  struct node * current = linkedlist_ptr;
-  struct node * next;
-  struct node * new_node_ptr = malloc(sizeof(struct node));
+    struct node * current = linkedlist_ptr;
+    struct node * next;
+    struct node * new_node_ptr = malloc(sizeof(struct node));
 
-  
-  new_node_ptr -> userstr = malloc (sizeof(char) * strlen(userstr));
-  strcpy(new_node_ptr -> userstr, userstr);
-  
-  new_node_ptr -> next_ptr = NULL;
 
-  if (linkedlist_ptr == NULL){
-    return new_node_ptr; 
-  }
+    new_node_ptr -> userstr = malloc (sizeof(char) * strlen(userstr));
+    strcpy(new_node_ptr -> userstr, userstr);
 
-  current = linkedlist_ptr;
-  next = current -> next_ptr;
+    new_node_ptr -> next_ptr = NULL;
 
-  while(next != NULL){
-    current = next;
+    if (linkedlist_ptr == NULL){
+        return new_node_ptr; 
+    }
+
+    current = linkedlist_ptr;
     next = current -> next_ptr;
-  }
-  current -> next_ptr = new_node_ptr;
-  return linkedlist_ptr;
+
+    while(next != NULL){
+        current = next;
+        next = current -> next_ptr;
+    }
+    current -> next_ptr = new_node_ptr;
+    return linkedlist_ptr;
 }
 
 
@@ -86,7 +85,7 @@ int main(){
   char input_str [MAX_STRLEN] = "";
   
   while (strcmp(input_str, "-1") != 0){
-    printf("Enter a string (-1 to quit):");
+    printf("Enter a string (-1 to quit): ");
     fgets(input_str, MAX_STRLEN, stdin);
     rstrip(input_str);
     linkedlist_ptr = add_str_to_ll(linkedlist_ptr, input_str);
